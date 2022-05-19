@@ -3,20 +3,20 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: Roboto, Arial, Serif;
+  font-family: Roboto, Arial, Serif; /*adiciona fonte do google fonts*/
 }
 
 main {
-  /* margin: 0 10rem 0 10rem; */
-  margin-left: 10rem;
-  margin-right: 10rem;
+  /* margin: 0 10rem 0 10rem; */ /*margin 0 auto margin 0 em cima em baixo e automatica esquerda e direita*/
+  margin-left: 10rem;/*adiciona espaçamento apenas na margin esquerda*/
+  margin-right: 10rem;/*adiciona espaçamento apenas na margin direita*/
 }
 
 /*menu de navegação*/
 nav {
   background-color: #1d95cd;
-  position: fixed;
-  width: 100%;
+  position: fixed;/*posição do menu fica fixa ao movimentar a page*/
+  width: 100%;/*utilizar porcentagem para responsividade é ótimo*/
 }
 
 ul#menu {
@@ -28,12 +28,12 @@ ul#menu {
 }
 
 ul#menu li {
-  padding: 0.7rem;
+  padding: 0.7rem;/*espaçamento interno*/
 }
 
 ul#menu li i {
-  font-size: 2rem;
-  color: #fff;
+  font-size: 2rem;/*tamanho da fonte */
+  color: #fff; /* cor da fonte*/
 }
 
 ul#menu li a {
@@ -42,7 +42,7 @@ ul#menu li a {
 }
 
 ul#menu li:hover {
-  transform: scale(1.2);
+  transform: scale(1.2); /*faz o efeito de aumentar quando passa o mouse em cima*/
 }
 
 /*estilização do header*/
@@ -53,7 +53,7 @@ header img {
 }
 
 header h1 {
-  text-align: center;
+  text-align: center;/* alinhamento do texto*/
   margin-top: 3rem;
 }
 
@@ -75,17 +75,17 @@ section#cursos h2 {
 }
 
 section#cards {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
+  display: flex; /*coloca os elementos lado a lado */
+  justify-content: space-evenly;/*coloca o espaço igual ao redor dos elementos */
+  width: 100%;/*vai ocupar 100% o espaço que ele está*/
 }
 
 .card {
   width: 20rem;
   padding: 1rem;
   margin: 1rem;
-  box-shadow: 2px 2px 2px 2px #00000020;
-  transition: transform 0.5s ease-in-out;
+  box-shadow: 2px 2px 2px 2px #00000020;/* adiciona sombreamento*/
+  transition: transform 0.5s ease-in-out; /* adiciona a transição de efeito*/
 }
 
 .card:hover {
@@ -134,7 +134,7 @@ section#inscrevase {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap;/* quebra o elemento para proxima linha quando não cabe no espaço */
 }
 
 section#inscrevase form {
