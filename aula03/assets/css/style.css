@@ -203,3 +203,18 @@ footer a {
 footer a:hover {
   color: rgb(224, 14, 161);
 }
+
+/* animação dos cards */
+[data-anime]{
+  opacity: 0; /*tirar o opacidade dos cards*/
+  transition: 1s;/*transição*/
+}
+
+[data-anime].animate{
+  opacity: 1; /*voltando a opacidade dos cards quando rola o scroll*/
+  transform: translate3d(0,0,0); /*x,y,z*/
+}
+
+[data-anime="up"]{
+  transform: translate3d(0, 100%, 0);
+}
