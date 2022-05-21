@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+}
+
+.header{
+    background-color: aquamarine; /*Altera a cor de fundo*/
+    padding: 1rem;/*adiciona um espaçamento interno*/
+    color: #fff;/*adiciona cor na letra*/
+    text-align: center; /*alinhamento ao centro da tela*/
+    margin: 0.5rem;
+}
+
+h1{
+    padding-bottom: 2rem;
+}
+
+input{
+    margin: 0; /*retirou as margens*/
+    width: 70%; /*mudou o tamanho e fez ele ocupar 70% da largura da página*/
+    padding: .6rem;/*espaço interno*/
+    font-size: 1rem;/*tamanho da fonte*/
+    border: none;/*linha da borda que a gente retirou*/
+    outline: none;/*quando clicado tira a borda*/
+    border-radius: 2rem;/*deixa a borda arredondada*/
+}
+
+#addBtn{
+    width: 25%;/*mudou o tamanho e fez ele ocupar 70% da largura da página*/
+    padding: 0.5rem;/*espaço interno*/
+    background:rgb(244, 239, 239);/*altera a cor do fundo*/
+    color: rgb(60, 53, 53);/*adiciona cor na letra*/
+    text-align: center;/*alinha o texto ao centro*/
+    font-size: 1rem;/*tamanho da fonte*/
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;/*deixa o ponteiro com uma mãozinha clicavel*/
+    transition: 0.3s;/*tempo de transição para realizarmos algum efeito*/
+}
+
+#addBtn:hover{
+    background-color: rgb(126, 120, 120);
+}
+
+.flex{
+    display: flex;
+}
+
+#tasks{
+    margin: 0.5rem;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li{
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: antiquewhite;
+    position: relative;
+    font-size: 12px;
+}
+
+ul li:nth-child(){
+    background-color: beige;
+}
+
+ul li:hover{
+    background-color: bisque;
+}
+
+ul li.checked{
+    background: rgb(112, 99, 99);
+    color: #fff;
+    text-decoration: line-through;
+}
+
+ul li.checked::before{
+    content: "";
+    position: absolute;
+    border: rgb(197, 51, 51) solid;
+    top:10px;
+}
+
+.close{
+    position: absolute;
+    right: 0;
+    top:0;
+    padding: 1rem 1rem 1rem 1rem;
+
+}
+.close:hover{
+    background-color: red;
+    color: aliceblue;
+}
+
+
+
