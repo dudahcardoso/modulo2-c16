@@ -43,7 +43,8 @@ btnAdd.addEventListener("click", function (){
     //adicionando um evento de click
     list.addEventListener("click", (ev) => {
         //dentro da minha target tudo que tiver o nome nodeName==LI
-        if(ev.target.nodeName === "LI"){
+        if(ev.target.nodeName === "LI")//estrutura: event.target.nodeName != "CHECKBOX" 
+        {
             ev.target.classList.toggle("checked");//vai ser adicionado como checked
         }
     });
