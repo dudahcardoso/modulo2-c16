@@ -7,11 +7,11 @@
 }
 
 .header{
-    background-color: aquamarine; /*Altera a cor de fundo*/
+    background-color: rgb(102, 209, 174); /*Altera a cor de fundo*/
     padding: 1rem;/*adiciona um espaçamento interno*/
     color: #fff;/*adiciona cor na letra*/
     text-align: center; /*alinhamento ao centro da tela*/
-    margin: 0.5rem;
+    margin: 0.2rem;/*margin da página*/
 }
 
 h1{
@@ -19,13 +19,14 @@ h1{
 }
 
 input{
-    margin: 0; /*retirou as margens*/
+    margin: 0 2rem 0 0; /*retirou as margens*/
     width: 70%; /*mudou o tamanho e fez ele ocupar 70% da largura da página*/
     padding: .6rem;/*espaço interno*/
     font-size: 1rem;/*tamanho da fonte*/
     border: none;/*linha da borda que a gente retirou*/
     outline: none;/*quando clicado tira a borda*/
     border-radius: 2rem;/*deixa a borda arredondada*/
+    color: rgb(60, 53, 53);
 }
 
 #addBtn{
@@ -39,11 +40,13 @@ input{
     border: none;/*retira as bordas*/
     outline: none;/*quando clicado tira a borda*/
     cursor: pointer;/*deixa o ponteiro com uma mãozinha clicavel*/
-    transition: 0.3s;/*tempo de transição para realizarmos algum efeito*/
+    transition: 0.2s;/*tempo de transição para realizarmos algum efeito*/
 }
 
 #addBtn:hover{
-    background-color: rgb(126, 120, 120);
+    background-color: rgb(77, 124, 92);
+   transform: rotate(0.5turn);
+    /*transform: scale(0.5) translate(-100%, -100%);*/
 }
 
 .flex{
@@ -51,56 +54,58 @@ input{
 }
 
 #tasks{
-    margin: 0.5rem;
+    margin: 1rem;
 }
 
 ul{
-    list-style: none;
+    list-style: none;/*tira as marcações*/
 }
 
 ul li{
     padding: 1rem 1rem 1rem 1rem;
-    background-color: antiquewhite;/*cor própria da li's*/
+    background-color: rgb(119, 195, 117);/*segunda cor de fundo inserida das tarefas*/
     position: relative;
-    font-size: 12px;
+    font-size: 18px;
 }
 
 ul li:nth-child(odd){/*listra zebrada*/
-    background-color: beige;/*primeira cor inserida*/
+    background-color: rgb(188, 239, 197);/*primeira cor de fundo inserida das tarefas*/
 }
 
 ul li:hover{
-    background-color: bisque;
+    background-color: rgb(201, 159, 149);/*cor quando o mouse passa pelas tarefas*/
 }
 
 ul li.checked{
-    background: rgb(112, 99, 99);
-    color: #fff;
+    background: rgb(7, 241, 58);/*cor de fundo quando clicada cheked*/
+    color: #fff;/*cor da fonte*/
     text-decoration: line-through;/*risco em cima do texto*/
 }
 
 ul li.checked::before{/*before cria um novo elemento (o checked)*/
-    content: "";
+    content: "";/*cria um elemento vazio */
     position: absolute;
-    border: rgb(197, 51, 51) solid;
+    border: rgb(2, 60, 15) solid;
     top:10px;
     left: 16px;/*altura*/
     height: 15px;/*largura*/
-    width: 7px;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
+    width: 10px;
+    border-width: 0 2px 2px 0;/* faz o desenho do checked*/
+    transform: rotate(45deg);/* rotaciona o check*/
 }
 
 .close{
     position: absolute;
     right: 0;
     top:0;
-    padding: 1rem 1rem 1rem 1rem;
-
+    padding: 0rem .4rem 0rem 1rem;/*posição do botão*/
 }
+
 .close:hover{
     background-color: red;
     color: aliceblue;
+    /* align-items: center;
+    justify-items: center;*/
 }
 
 
