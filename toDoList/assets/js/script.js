@@ -9,7 +9,7 @@ btnAdd.addEventListener("click", function (){
 
     //verificação se está em branco o input
     if(inputValue === ""){
-        alert("Você deve digitar alguma tarefa.")
+        alert("Você deve digitar alguma tarefa.");
     }else{
         document.getElementById("myUL").appendChild(li);//adiciona a li como filha da ul e ele encaixa a minha li na ul
     }
@@ -26,25 +26,24 @@ btnAdd.addEventListener("click", function (){
 
     //apagar a tarefa definitivamente
     const close = document.querySelectorAll(".close");//pega todas as spans de fechar
-
     //varre a lista de spans e faz a verificação uma por uma, e vê e qual foi a clicada
     for(let i = 0; i < close.length; i++){
         close[i].addEventListener("click", function (){
             const li = this.parentElement;//pega o parente e o nesse caso é element é a li
             li.style.display ="none";//muda o display para none fazendo ele sumir da tela
         });
-    };  
-    
+    };      
 });//termina a função anonima
 
 //check na tarefa
     const list = document.querySelector("ul");//captura a lista inteira, vai pegar a ul inteira
 
     //adicionando um evento de click
-    list.addEventListener("click", (ev) => {
+    list.addEventListener("click", (evento) => {
         //dentro da minha target tudo que tiver o nome nodeName==LI
-        if(ev.target.nodeName === "LI")//estrutura: event.target.nodeName != "CHECKBOX" 
+        if(evento.target.nodeName === "LI")
+        //estrutura: event.target.nodeName != "CHECKBOX" 
         {
-            ev.target.classList.toggle("checked");//vai ser adicionado como checked
+            evento.target.classList.toggle("checked");//vai ser adicionado como checked, togle é para armar e desarmar evento
         }
     });
