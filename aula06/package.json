@@ -1,0 +1,19 @@
+{
+  "name": "aula06",
+  "version": "1.0.0",
+  "description": "Projeto da Landing Page da Blue",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Maria Eduarda Cardoso",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  }
+}
