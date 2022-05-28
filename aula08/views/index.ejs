@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Landing Page</title>
+</head>
+<body>
+    
+    <nav>
+        <img src="img/logo-blue.gif" class="img-fluid gif" alt="Animação do logo da Blue">
+
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#cursos">CURSOS</a></li>
+            <li><a href="#inscrever">Inscreva-se</a></li>
+        </ul>
+    </nav>
+
+    <% if(message != ""){ %>
+    <section id="message">
+        <p> <%=message%> </p> <span id="close">&times;</span>
+    </section>
+    <% } %>
+
+    <header>
+        <article>
+            <h1><%= titulo %></h1>
+            <p>Usar a força revolucionária da tecnologia para conectar pessoas e expandir horizontes com metodologias e ensino inovador. Este é o nosso propósito, e é por isso que antes de uma escola de tecnologia da informação,somos impulsionadores.</p>
+        </article>
+
+        <img src="/img/banner.png" class="img fluid gif" alt="Banner">
+    </header>
+
+    <section id="cursos">
+        <section class="card">
+            <article id="title">
+                <h2>Principais especialidades, linguagens e frameworks do curso de Hard Skills:</h2>
+                <img src="/img/cursos.png" alt="">
+            </article>
+
+            <article id="content">
+                <h3>Desenvolvimento de Software</h3>
+
+                <ul>
+                    <% devList.forEach(item => { %>
+                        <li><%= item %></li>
+                        <% }) %>
+                </ul>
+
+                <h3>Analytics</h3>
+                <ul>
+                    <% analyticsList.forEach(item => { %>
+                        <li><%= item %></li>
+                    <% }) %>
+                </ul>
+
+                <a id="inscrever" href="#inscrever">Inscreva-se agora!</a>
+            </article>
+        </section>
+    </section>   
+
+    <section id="inscrever">
+        <h2>Inscreva-se!</h2>
+
+        <form action="/subscription" method="POST">
+            <div>
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
+            </div>
+
+            <div>
+                <label for="email">E-mail: </label>
+                <input type="email" name="email" id="email" placeholder="Digite seu email" required>
+            </div>
+
+            <button type="submit">Inscrever-se</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>
+            The future is blue - <a href="https://blueedtech.com.br/" target="_blank"> BlueEdtech</a>
+        </p>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    
+</body>
+</html>
