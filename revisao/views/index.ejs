@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Cachorros AuAu</title>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">
+            <h1>Au Au</h1>
+          </a>
+        </li>
+        <li><a href="#cadastro">Cadastro</a></li>
+        <li><a href="#cards">Cachorros</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="cadastro">
+        <img src="/img/cachorros.jpg" alt="Tipos de Cachorros" />
+
+        <div>
+          <h2>Cadastre um novo cachorro</h2>
+
+          <form action="/create" method="POST">
+            <label for="nome">Nome: </label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="raca">Raça: </label>
+            <input type="text" id="raca" name="raca" required>
+
+            <label for="pelagem">Pelagem: </label>
+            <input type="text" id="pelagem" name="pelagem" required>
+
+            <label for="imagem">Link da imagem: </label>
+            <input type="text" id="imagem" name="imagem" required>
+
+            <button id="btnCadastrar" type="submit">Cadastrar</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="cards">
+          <h2 id="lista">Lista de Cachorros</h2>
+          <% listaCachorros.forEach((cachorro) => { %> 
+          <div class="card">
+              <img src="<%= cachorro.imagem %>" alt="">
+              <h3>
+                  <%= cachorro.nome %>
+              </h3>
+              <p class="raca">
+                  <%= cachorro.raca %>
+              </p>
+              <p>
+                  <%= cachorro.pelagem %>
+              </p>
+
+          </div>
+          <% }) %>
+      </section>
+    </main>
+
+  </body>
+</html>
