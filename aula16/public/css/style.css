@@ -73,3 +73,53 @@ footer{
     align-items: center;
     color: white;
 }
+
+/* modal */
+.modal-overlay {
+    background-color: #00000050;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+  }
+  
+  .modal {
+    margin: 1rem;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    min-height: 300px;
+    background-color: #fff;
+    border-radius: 11px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #dc0a2d;
+    padding: 1rem;
+    color: #fff;
+  }
+  
+  .modal-header a#close-modal-put {
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .modal-body {
+    padding: 0.5rem 1rem;
+    flex: 1;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+  }
