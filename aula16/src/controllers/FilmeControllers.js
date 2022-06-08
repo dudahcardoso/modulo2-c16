@@ -18,6 +18,5 @@ const getAll = async (req, res) => {//async, aguarda porque eu vou lá fazer a c
 
 
 module.exports = {
-    getAll,
-    getById
+    getAll
 }
