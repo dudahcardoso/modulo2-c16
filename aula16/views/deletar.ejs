@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>Excluir Filme</title>
+</head>
+<body>
+    <header>
+        <h1>Filmes</h1>
+        <nav><a href="/">Home</a><a href="/criar">Cadastrar</a></nav>
+    </header>
+    <main>
+        <div class="container">
+            <span><% if(mensagem != ""){ mensagem } %></span>
+            <form method="POST" action="/deletar/<%= filme.id %>">
+                <div class="item">
+                    <h2>Dejesa realmente deletar?</h2>
+                    <span><%= filme.nome %></span>
+                </div>
+                <div class="item">
+                    <img src="<%= filme.imagem %>" alt="capa do filme">
+                </div>
+                <div class="item">
+                    <a href="/filmes/<%= filme.id %>">Cancelar</a>
+                    <Button type="submit">confirmar Exclusão</Button>
+                </div>
+                <!-- <input type="hidden" id="teste" name="teste"> -->
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Lista de filmes - 2022</p>
+    </footer>
+    <script src="./JS/script.js"></script> 
+</body>
+</html>

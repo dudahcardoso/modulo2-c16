@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <%- include('./components/head') %>
+    
+</head>
+<body>
+    <header>
+        <h1>Filmes</h1>
+
+        <%- include('./components/nav') %>
+        
+    </header>
+    <main>
+        <div class="container">
+            <span><% if(message != ""){ message } %></span>
+            <form method="POST" action="/create">
+                <div class="item">
+                    <input type="text" placeholder="Digite o nome do filme" name="nome" required>
+                </div>
+                <div class="item">
+                    <textarea placeholder="Digite a descrição do filme" name="descricao"></textarea>
+                </div>
+                <div class="item">
+                    <input type="text" placeholder="Digite a URL da capa" name="imagem" required>
+                </div>
+                <div class="item">
+                    <Button type="submit">Cadastrar</Button>
+                </div>
+                <!-- <input type="hidden" id="teste" name="teste"> -->
+            </form>
+        </div>
+    </main>
+    <%- include('./components/footer') %>
+    <script src="./JS/script.js"></script> 
+</body>
+</html>

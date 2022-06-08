@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>Editar Filmes</title>
+</head>
+<body>
+    <header>
+        <h1>Filmes</h1>
+        <nav><a href="/">Home</a><a href="/criar">Cadastrar</a></nav>
+    </header>
+    
+    <main>
+
+        <div class="container">
+            <span><% if(message != ""){ message } %></span>
+            <form method="POST" action="/editar/<%= filme.id %>">
+                <div class="item">
+                    <input type="text" placeholder="Digite o nome do filme" name="nome" value="<%= filme.nome %>" required>
+                </div>
+                <div class="item">
+                    <textarea placeholder="Digite a descrição do filme" name="descricao" ><%= filme.descricao %></textarea>
+                </div>
+                <div class="item">
+                    <input type="text" placeholder="Digite a URL da capa" name="imagem" value="<%= filme.imagem %>" required>
+                </div>
+                <div class="item">
+                    <Button type="submit">Salvar alteração</Button>
+                </div>
+                <!-- <input type="hidden" id="teste" name="teste"> -->
+            </form>
+        </div>
+
+        </main>
+    <footer>
+        <p>Lista de filmes - 2022</p>
+    </footer>
+    <script src="./JS/script.js"></script> 
+</body>
+</html>
