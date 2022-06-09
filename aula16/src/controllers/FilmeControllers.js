@@ -56,9 +56,59 @@ const criacao  = async (req,res) =>{
     };
 };
 
+//rota editar filme
+const editar1 = async (req,res) => {
+    const filme = await Filme.findByPk(req.params.id);
+
+    if(!filme){
+        res.render("editar", {
+            message: "Filme não foi encontrado!"
+        });
+    }
+    res.render("editar",{
+        filme,
+        message:"",
+    });
+};
+
+//rota de edição do filme
+const editar = async (req,res) => {
+    try{
+        const filme = await Filme.findByPk(req.params.id);
+        const {nome, descricao, imagem } = req.body;
+
+        filme.nome = nome;
+        filme.descricao = descricao;
+        filme.imagem = imagem;
+
+        const filmeEditado = await filme.save();
+        // res.render("editar", {
+        //     filme: filmeEditado,
+        //     message:"Filme editado com sucesso!",
+        // });
+        res.redirect("/");
+    }catch(err){//deu erro, venha nesse caminho
+        res.status(500).send({err: err.message});//vem do objeto erro
+    };
+};
+
+//rota deletar o filme
+const deletar = async (req,res) => {
+    try{
+        await Filme.destroy({where : { id: req.params.id}});
+        message = "Filme removido com sucesso"
+        res.redirect("/");
+    }catch(err){//deu erro, venha nesse caminho
+        res.status(500).send({err: err.message});//vem do objeto erro
+    };
+}
+
 module.exports = {
     getAll,
     getById,
     criar,
-    criacao
+    criacao,
+    editar1,
+    editar,
+    deletar
 }
