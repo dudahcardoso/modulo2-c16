@@ -28,7 +28,37 @@ const getById = async (req,res) => {
     };
 };
 
+//rota de criação do filme
+const criar = (req,res ) => {
+    try{
+        res.render("criar", {message});
+    }catch(err){//deu erro, venha nesse caminho
+        res.status(500).send({err: err.message});//vem do objeto erro
+    };
+};
+
+const criacao  = async (req,res) =>{
+    try{
+        const filme = req.body;//a requisição que vem do body, pegando os dados que vem do body
+        if(
+            !filme.nome ||
+            !filme.descricao ||
+            !filme.imagem
+        ){
+            message = "Preencha todos os campos para cadastro!"
+            type = "danger";
+            return res.redirect("/criar");
+        }
+        await Filme.create(filme);//model filme e cria o filme que chegou, async espera essa transação
+        res.redirect("/");
+    }catch(err){//deu erro, venha nesse caminho
+        res.status(500).send({err: err.message});//vem do objeto erro
+    };
+};
+
 module.exports = {
     getAll,
-    getById
+    getById,
+    criar,
+    criacao
 }
