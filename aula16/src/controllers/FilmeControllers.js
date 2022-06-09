@@ -16,7 +16,19 @@ const getAll = async (req, res) => {//async, aguarda porque eu vou lá fazer a c
     };
 };
 
+//rota para pegar o ID do filme selecionado
+const getById = async (req,res) => {
+    try{
+        const filme = await Filme.findByPk(req.params.id);//encontrando o filme que foi escolhido pelo id, findByPk procurar pela chave primaria que é o id, e esse id vai chegar por parametro
+        res.render("detalhes", {
+            filme
+        });
+    }catch(err){//deu erro, venha nesse caminho
+        res.status(500).send({err: err.message});//vem do objeto erro
+    };
+};
 
 module.exports = {
-    getAll
+    getAll,
+    getById
 }
