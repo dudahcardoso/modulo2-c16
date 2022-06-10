@@ -1,5 +1,6 @@
 const Filme = require("../models/Filmes"); //trazendo o filme que está cadastrado os dados na tabela no meu banco de dados
 let message = "";
+let type = "";
 const orderById = { order: [["id", "ASC"]] }; //objeto e ele vai ter o order, que tem um array que tem outro array, falo o campo que eu quero ordenar e como eu quero ordenar
 
 const Op = require("sequelize").Op; //trazendo os pacotes de operadores do sequelize
@@ -12,9 +13,10 @@ const getAll = async (req, res) => {
     const filmes = await Filme.findAll(orderById); //aguardando
     res.render("index", {
       filmes,
-      filmesPut: null,
-      filmesDel: null,
+      //filmesPut: null,
+      //filmesDel: null,
       message,
+      type,
       filmeSearch: [],
     });
   } catch (err) {
@@ -40,7 +42,7 @@ const getById = async (req, res) => {
 //rota de criação do filme
 const criar = (req, res) => {
   try {
-    res.render("criar", { message });
+    res.render("criar", { message, type });
   } catch (err) {
     //deu erro, venha nesse caminho
     res.status(500).send({ err: err.message }); //vem do objeto erro
@@ -50,7 +52,11 @@ const criar = (req, res) => {
 const criacao = async (req, res) => {
   try {
     const filme = req.body; //a requisição que vem do body, pegando os dados que vem do body
-    if (!filme.nome || !filme.descricao || !filme.imagem) {
+    if (
+         !filme.nome
+         || !filme.descricao 
+         || !filme.imagem) 
+         {
       message = "Preencha todos os campos para cadastro!";
       type = "danger";
       return res.redirect("/criar");
@@ -70,11 +76,13 @@ const editar1 = async (req, res) => {
   if (!filme) {
     res.render("editar", {
       message: "Filme não foi encontrado!",
+      type: "danger",
     });
   }
   res.render("editar", {
     filme,
-    message: "",
+    message: "Editado com sucesso",
+    type:"success",
   });
 };
 
@@ -104,7 +112,8 @@ const editar = async (req, res) => {
 const deletar = async (req, res) => {
   try {
     await Filme.destroy({ where: { id: req.params.id } });
-    message = "Filme removido com sucesso";
+    message = "Filme removido com sucesso",
+    type = "success",
     res.redirect("/");
   } catch (err) {
     //deu erro, venha nesse caminho
@@ -127,7 +136,8 @@ const pesquisaNome = async (req, res) => {
     });
 
     if (filme.length == 0) {
-      message = "Filme não foi encontrado";
+      message = "Filme não foi encontrado",
+      type = "danger"
       return res.redirect("/"); //parar a função de pesquisa
     }
 

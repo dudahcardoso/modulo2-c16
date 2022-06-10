@@ -4,12 +4,15 @@
 
   <body>
     <header>
-      <h1>Filmes</h1>
-      <%- include('./components/nav') %>
+      <h1>Catalogo de Filmes</h1>
+      <%- include('./components/nav') %> 
+      <% if(message != "") { %>
+      <%-include('./components/alerts') %> 
+      <% } %>
     </header>
 
     <main>
-        <!-- comparação para ver se acha o filme na pesquisa, por isso o uso do if e else -->
+      <!-- comparação para ver se acha o filme na pesquisa, por isso o uso do if e else -->
       <% if (filmeSearch.length == 0){ %>
       <div class="container">
         <% filmes.forEach((filme) => { %>
