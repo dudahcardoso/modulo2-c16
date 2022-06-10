@@ -15,7 +15,7 @@ const getAll = async (req, res) => {
       filmesPut: null,
       filmesDel: null,
       message,
-      filmeSearch:[]
+      filmeSearch: [],
     });
   } catch (err) {
     //deu erro, venha nesse caminho
@@ -29,7 +29,7 @@ const getById = async (req, res) => {
     const filme = await Filme.findByPk(req.params.id); //encontrando o filme que foi escolhido pelo id, findByPk procurar pela chave primaria que é o id, e esse id vai chegar por parametro
     res.render("detalhes", {
       filme,
-      filmeSearch:[]
+      filmeSearch: [],
     });
   } catch (err) {
     //deu erro, venha nesse caminho
@@ -129,7 +129,7 @@ const pesquisaNome = async (req, res) => {
     if (filme.length == 0) {
       message = "Filme não foi encontrado";
       return res.redirect("/"); //parar a função de pesquisa
-    };
+    }
 
     res.render("index", {
       filmes: [],
@@ -150,5 +150,5 @@ module.exports = {
   editar1,
   editar,
   deletar,
-  pesquisaNome
+  pesquisaNome,
 };

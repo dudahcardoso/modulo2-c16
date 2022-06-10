@@ -7,16 +7,17 @@
       <h1>Filmes</h1>
       <%- include('./components/nav') %>
     </header>
+
     <main>
         <!-- comparação para ver se acha o filme na pesquisa, por isso o uso do if e else -->
       <% if (filmeSearch.length == 0){ %>
       <div class="container">
-        <% filmes.forEach(item => { %>
+        <% filmes.forEach((filme) => { %>
         <div class="item">
-          <h2><%= item.nome %></h2>
-          <p><%= item.descricao %></p>
-          <a href="/filmes/<%= item.id %>"
-            ><img src="<%= item.imagem %>" alt="capa do filme"
+          <h2><%= filme.nome %></h2>
+          <p><%= filme.descricao %></p>
+          <a href="/filmes/<%= filme.id %>"
+            ><img src="<%= filme.imagem %>" alt="capa do filme"
           /></a>
         </div>
         <% }) %>
@@ -31,12 +32,12 @@
       </section>
 
       <div class="container">
-        <% filmes.forEach(item => { %>
+        <% filmeSearch.forEach((filme) => { %>
         <div class="item">
-          <h2><%= item.nome %></h2>
-          <p><%= item.descricao %></p>
-          <a href="/filmes/<%= item.id %>"
-            ><img src="<%= item.imagem %>" alt="capa do filme"
+          <h2><%= filme.nome %></h2>
+          <p><%= filme.descricao %></p>
+          <a href="/filmes/<%= filme.id %>"
+            ><img src="<%= filme.imagem %>" alt="capa do filme"
           /></a>
         </div>
         <% }) %>
