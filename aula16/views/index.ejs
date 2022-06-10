@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    
-    <%- include('./components/head') %>
+  <%- include('./components/head') %>
 
-<body>
+  <body>
     <header>
-        <h1>Filmes</h1>
-        <%- include('./components/nav') %>
+      <h1>Filmes</h1>
+      <%- include('./components/nav') %>
     </header>
     <main>
-        <div class="container">
-            <% filmes.forEach(item => { %>
-                <div class="item">
-                    <h2><%= item.nome %></h2>
-                    <p><%= item.descricao %></p>
-                    <a href="/filmes/<%= item.id %>"><img src="<%= item.imagem %>" alt="capa do filme"></a>
-                </div>
-            <% }) %>
+      <% if (filmeSearch.length ==0){ %>
+      <div class="container">
+        <% filmes.forEach(item => { %>
+        <div class="item">
+          <h2><%= item.nome %></h2>
+          <p><%= item.descricao %></p>
+          <a href="/filmes/<%= item.id %>"
+            ><img src="<%= item.imagem %>" alt="capa do filme"
+          /></a>
         </div>
+        <% }) %>
+      </div>
+      <% }) %> <% } else { %>
+      <section class="result">
+        <div id="result-search-space">
+          <h2>Resultados da Pesquisa</h2>
+          <a href="/">Todos os filmes</a>
+        </div>
+      </section>
+
+      <div class="container">
+        <% filmes.forEach(item => { %>
+        <div class="item">
+          <h2><%= item.nome %></h2>
+          <p><%= item.descricao %></p>
+          <a href="/filmes/<%= item.id %>"
+            ><img src="<%= item.imagem %>" alt="capa do filme"
+          /></a>
+        </div>
+        <% }) %>
+      </div>
+      <% } %>
     </main>
-    
+
     <%- include('./components/footer') %>
-   
+
     <script src="./js/script.js"></script>
-</body>
+  </body>
 </html>
