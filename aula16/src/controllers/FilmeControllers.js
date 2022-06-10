@@ -15,6 +15,7 @@ const getAll = async (req, res) => {
       filmesPut: null,
       filmesDel: null,
       message,
+      filmeSearch:[]
     });
   } catch (err) {
     //deu erro, venha nesse caminho
@@ -28,6 +29,7 @@ const getById = async (req, res) => {
     const filme = await Filme.findByPk(req.params.id); //encontrando o filme que foi escolhido pelo id, findByPk procurar pela chave primaria que é o id, e esse id vai chegar por parametro
     res.render("detalhes", {
       filme,
+      filmeSearch:[]
     });
   } catch (err) {
     //deu erro, venha nesse caminho

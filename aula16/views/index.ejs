@@ -8,7 +8,8 @@
       <%- include('./components/nav') %>
     </header>
     <main>
-      <% if (filmeSearch.length ==0){ %>
+        <!-- comparação para ver se acha o filme na pesquisa, por isso o uso do if e else -->
+      <% if (filmeSearch.length == 0){ %>
       <div class="container">
         <% filmes.forEach(item => { %>
         <div class="item">
@@ -20,7 +21,8 @@
         </div>
         <% }) %>
       </div>
-      <% }) %> <% } else { %>
+
+      <% } else { %>
       <section class="result">
         <div id="result-search-space">
           <h2>Resultados da Pesquisa</h2>
