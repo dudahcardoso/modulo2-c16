@@ -8,5 +8,6 @@ routes.post("/criacao", FilmeController.criacao);//rota de criacao dos filmes
 routes.get("/editar/:id", FilmeController.editar1);//rota de validação se existe o filme para eu editar
 routes.post("/editar/:id", FilmeController.editar);//rota de edição
 routes.get("/deletar/:id", FilmeController.deletar);//rota para deletar o filme
+routes.post("/deletar/:id", FilmeController.deletar1);//rota para deletar o filme
 routes.post("/pesquisa", FilmeController.pesquisaNome);//rota para pesquisar um filme
 module.exports = routes;//exporto ela para qualquer caminho

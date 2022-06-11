@@ -5,8 +5,8 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="/css/styledetalhes.css"/>
         <title>Filmes</title>
     </head>
 
@@ -24,14 +24,14 @@
             <div class="item texto">
                 <h2><%= filme.nome %></h2>
                 <p><%= filme.descricao %></p>
-                <a href="/editar/<%= filme.id %>">editar</a>
-                <a href="/deletar/<%= filme.id %>">excluir</a>
+                <a href="/editar/<%= filme.id %>" class="editar">editar</a>
+                <a href="/deletar/<%= filme.id %>" class="apagar">excluir</a>
             </div>
         </div>
     </main>
     
         <%- include('./components/footer') %>
     
-    <script src="./JS/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>

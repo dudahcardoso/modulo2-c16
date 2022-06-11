@@ -29,8 +29,11 @@ const getAll = async (req, res) => {
 const getById = async (req, res) => {
   try {
     const filme = await Filme.findByPk(req.params.id); //encontrando o filme que foi escolhido pelo id, findByPk procurar pela chave primaria que é o id, e esse id vai chegar por parametro
+    const filmes = await Filme.findAll(orderById);//só para melhorar a vizualização
     res.render("detalhes", {
       filme,
+      message,
+      type,
       filmeSearch: [],
     });
   } catch (err) {
@@ -53,9 +56,9 @@ const criacao = async (req, res) => {
   try {
     const filme = req.body; //a requisição que vem do body, pegando os dados que vem do body
     if (
-         !filme.nome
-         || !filme.descricao 
-         || !filme.imagem) 
+         !filme.nome || 
+         !filme.descricao || 
+         !filme.imagem) 
          {
       message = "Preencha todos os campos para cadastro!";
       type = "danger";
@@ -109,16 +112,49 @@ const editar = async (req, res) => {
 };
 
 //rota deletar o filme
-const deletar = async (req, res) => {
-  try {
-    await Filme.destroy({ where: { id: req.params.id } });
-    message = "Filme removido com sucesso",
-    type = "success",
-    res.redirect("/");
-  } catch (err) {
+// const deletar = async (req, res) => {
+//   try {
+//     await Filme.destroy({ where: { id: req.params.id } });
+//     message = "Filme removido com sucesso",
+//     type = "success",
+//     res.redirect("/");
+//   } catch (err) {
+//     //deu erro, venha nesse caminho
+//     res.status(500).send({ err: err.message }); //vem do objeto erro
+//   }
+// };
+
+//rota da prof duda deletar
+const deletar = async (req,res) => {
+  try{
+    const filme = await Filme.findByPk(req.params.id);
+
+    if(!filme){
+      res.render("deletar", {
+        message: "Filme não foi encontrado!",
+        type: "danger"
+      });
+    }
+    res.render("deletar", {
+      filme, message:""
+    });
+  }catch (err) {
     //deu erro, venha nesse caminho
     res.status(500).send({ err: err.message }); //vem do objeto erro
+}
+};
+
+const deletar1 = async (req,res) => {
+  const filme = await Filme.findByPk(req.params.id);
+
+  if(!filme){
+    res.render("deletar", {
+      message: "Filme não encontrado",
+    });
   }
+
+  await filme.destroy();
+  res.redirect("/");
 };
 
 //rota de pesquisar filme
@@ -144,6 +180,7 @@ const pesquisaNome = async (req, res) => {
     res.render("index", {
       filmes: [],
       message,
+      type,
       filmeSearch: filme,
     });
   } catch (err) {
@@ -160,5 +197,6 @@ module.exports = {
   editar1,
   editar,
   deletar,
+  deletar1,
   pesquisaNome,
 };
