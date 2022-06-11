@@ -132,11 +132,11 @@ const deletar = async (req,res) => {
     if(!filme){
       res.render("deletar", {
         message: "Filme não foi encontrado!",
-        type: "danger"
+        type: "danger",
       });
     }
     res.render("deletar", {
-      filme, message:""
+      filme, message:"",
     });
   }catch (err) {
     //deu erro, venha nesse caminho

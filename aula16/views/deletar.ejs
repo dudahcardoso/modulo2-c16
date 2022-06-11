@@ -10,7 +10,7 @@
     </header>
     <main>
         <div class="container">
-            <!-- <span><% if(message != ""){ message } %></span> -->
+            <span><% if(message != ""){ message } %></span>
             <form method="POST" action="/deletar/<%= filme.id %>">
                 <div class="item">
                     <h2>Dejesa realmente deletar?</h2>
@@ -22,14 +22,14 @@
                 </div>
                 <div class="item">
                     <a href="/filmes/<%= filme.id %>" class="cancelar">Cancelar</a>
-                    <Button type="submit">Confirmar Exclusão</Button>
+                    <button type="submit">Confirmar Exclusão</button>
                 </div>
                 
             </form>
         </div>
     </main>
     
-        <%- include(./components/footer') %>
+        <%- include('./components/footer') %>
    
     <script src="/js/script.js"></script> 
 </body>
