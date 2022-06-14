@@ -100,10 +100,10 @@ const editar = async (req, res) => {
     filme.imagem = imagem;
 
     const filmeEditado = await filme.save();
-    // res.render("editar", {
-    //     filme: filmeEditado,
-    //     message:"Filme editado com sucesso!",
-    // });
+    res.render("editar", {
+        filme: filmeEditado,
+        message:"Filme editado com sucesso!",
+    });
     res.redirect("/");
   } catch (err) {
     //deu erro, venha nesse caminho
